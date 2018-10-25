@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/main/resources/spring/spring-service.xml=UTF-8
+encoding//src/main/resources/spring/spring-web.xml=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/detail.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/list.jsp=UTF-8

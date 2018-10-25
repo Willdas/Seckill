@@ -6,6 +6,7 @@ import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.entry.Seckill;
 import org.seckill.exception.RepeatKillException;
+import org.seckill.exception.SeckillCloseException;
 import org.seckill.exception.SeckillException;
 
 /**
@@ -60,6 +61,6 @@ public interface SeckillService {
 	 * @return: void      
 	 * @throws
 	 */
-	SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException, SeckillException, RepeatKillException;
+	SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException, SeckillCloseException, RepeatKillException;
 	
 }
