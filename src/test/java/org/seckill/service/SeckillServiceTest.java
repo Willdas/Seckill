@@ -1,6 +1,8 @@
 package org.seckill.service;
 
 
+import static org.junit.Assert.*;
+
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -57,6 +59,16 @@ public class SeckillServiceTest {
 		}else {
 			logger.warn("秒杀未开启->",export);
 		}
-		
 	}
+	@Test
+	public void testExecuteSeckillProcedure() {
+		long seckillId = 1000;
+		long userPhone = 13623121541L;
+		Exposer export = seckillService.exportSeckillUrl(seckillId);
+		String md5 = export.getMd5();
+		
+		SeckillExecution executeSeckillProcedure = seckillService.executeSeckillProcedure(seckillId, userPhone, md5);
+		System.out.println(executeSeckillProcedure);
+	}
+	
 }
