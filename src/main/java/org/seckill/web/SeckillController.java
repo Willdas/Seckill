@@ -87,10 +87,10 @@ public class SeckillController {
 	 * @throws
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/{seckillId/exposer}", 
+	@RequestMapping(value = "/{seckillId}/exposer", 
 					method = RequestMethod.POST,
 					produces = {"application/json;charset=UTF-8"})
-	public SeckillResult<Exposer> exposer(Long seckillId){
+	public SeckillResult<Exposer> exposer(@PathVariable("seckillId") Long seckillId){
 		SeckillResult<Exposer> result;
 		try {
 			Exposer exposer = seckillService.exportSeckillUrl(seckillId);
@@ -113,12 +113,13 @@ public class SeckillController {
 	 * @return: SeckillResult<SeckillExecution>      
 	 * @throws
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/{seckillId}/{md5}/execution",
 					method = RequestMethod.POST,
 					produces = {"application/json;charset=UTF-8"})
 	public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId") Long seckillId,
 													@PathVariable("md5") String md5,
-													@CookieValue(value = "killphone", required = false) Long userPhone){
+													@CookieValue(value = "killPhone", required = false) Long userPhone){
 		SeckillResult<SeckillExecution> result = null;
 		if (userPhone == null) {
 			result = new SeckillResult<SeckillExecution>(false, "未注册");
@@ -148,6 +149,7 @@ public class SeckillController {
 	 * @return: SeckillResult<Long>      
 	 * @throws
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/time/now",method = RequestMethod.GET)
 	public SeckillResult<Long> seckillTime(){
 		Date date = new Date();
